@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Website with frame </title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #f06, #4a90e2);
+            font-family: Arial, sans-serif;
+            perspective: 1000px;
+             }
+        .frame {
+            width: 200px;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 5px solid #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .cube {
+            width: 100px;
+            height: 100px;
+            position: relative;
+            transform-style: preserve-3d;
+            transform: rotateX(45deg) rotateY(45deg);
+            animation: rotate 5s infinite linear;
+        }
+        .cube div {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background: rgba(255, 255, 255, 0.8);
+            border: 1px solid #ccc;
+        }
+        .front  { transform: translateZ(50px); }
+      
+        .back   { transform: rotateY(180deg) translateZ(50px); }
+        .right  { transform: rotateY(90deg) translateZ(50px); }
+        .left   { transform: rotateY(-90deg) translateZ(50px); }
+        .top    { transform: rotateX(90deg) translateZ(50px); }
+        .bottom { transform: rotateX(-90deg) translateZ(50px); }
+        @keyframes rotate {
+            from { transform: rotateX(45deg) rotateY(45deg); }
+            to { transform: rotateX(45deg) rotateY(405deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="cube">
+        <div class="front">Front</div>
+        <div class="back">Back</div>
+      
+        <div class="right">Right</div>
+        <div class="left">Left</div>
+      
+        <div class="top">Top</div>
+        <div class="bottom">Bottom</div>
+    </div>
+</body>
+</html>
